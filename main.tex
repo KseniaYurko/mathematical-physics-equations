@@ -227,8 +227,8 @@ a(x,y)\omega_x^2 + 2b(x,y)\omega_x\omega_y + c(x,y)\omega_y^2 = 0, \quad (x,y) \
 Уравнение \eqref{eq:char_pde} является уравнением характеристик, поскольку последнее задаётся как $\sum_{i,j=1}^n a_{ij} \frac{\partial \omega}{\partial x_i} \frac{\partial \omega}{\partial x_j} = 0$.
 Функции $\xi, \eta$ называются \textit{характеристическими переменными}.
 
-\paragraph{I.1)} Пусть $a(x_0, y_0) \neq 0$ (или $c(x_0, y_0) \neq 0$; аналогично, если $a=0$, но $c \neq 0$, можно поменять ролями $x$ и $y$ или решить относительно $\omega_y/\omega_x$).
-В силу непрерывности $a(x,y)$, существует (возможно, меньшая) окрестность $U(x_0, y_0)$, где $a(x,y) \neq 0$.
+\paragraph{I.1)} Пусть $a(x_0, y_0) \neq 0$ (или $c(x_0, y_0) \neq 0$; аналогично, если $a=0$, но $c \neq 0$, можно поменять ролями $x$ и $y$ или решить относительно $\omega_y/\omega_x$). \\
+В силу непрерывности $a(x,y)$, $\exists$ окрестность $U(x_0, y_0)$,при этом исходная окрестность может сузиться. \\
 Поделим обе части уравнения \eqref{eq:char_pde} на $a(x,y) \neq 0 \quad \forall (x,y) \in U(x_0, y_0)$:
 \[
 \left(\frac{\omega_x}{\omega_y}\right)^2 + 2\frac{b}{a}\left(\frac{\omega_x}{\omega_y}\right) + \frac{c}{a} = 0 \quad (\text{если } \omega_y \neq 0)
@@ -253,45 +253,45 @@ a(x,y)\omega_x^2 + 2b(x,y)\omega_x\omega_y + c(x,y)\omega_y^2 = 0, \quad (x,y) \
 \left( \omega_x + \left(\frac{b - \sqrt{b^2-ac}}{a}\right)\omega_y \right) \left( \omega_x + \left(\frac{b + \sqrt{b^2-ac}}{a}\right)\omega_y \right) = 0
 \]
 Обозначим
-\[ \Omega_1(x,y) = \frac{b - \sqrt{b^2-ac}}{a}, \quad \Omega_2(x,y) = \frac{b + \sqrt{b^2-ac}}{a} \]
-Поскольку $b^2-ac > 0$, то $\Omega_1(x,y) \neq \Omega_2(x,y)$ в $U(x_0,y_0)$.
-Если $a,b,c \in C^2(U(x_0,y_0))$, и $b^2-ac > 0$, то $\Omega_{1,2}(x,y) \in C^2(U(x_0,y_0))$.
+\[ \lambda_+(x,y) = \frac{b - \sqrt{b^2-ac}}{a}, \quad \lambda_-(x,y) = \frac{b + \sqrt{b^2-ac}}{a} \]
+Поскольку $b^2-ac > 0$, то $\lambda_+(x,y) \neq \lambda_-(x,y)$ в $U(x_0,y_0)$.
+Если $a,b,c \in C^2(U(x_0,y_0))$, и $b^2-ac > 0$, то $\lambda_\pm \in C^2(U(x_0,y_0))$.
 Таким образом, уравнение \eqref{eq:char_pde} эквивалентно совокупности двух линейных однородных дифференциальных уравнений первого порядка:
 \begin{align}
-\omega_x(x,y) + \Omega_1(x,y)\omega_y(x,y) &= 0 \label{eq:char_ode1_pde_form} \\
-\omega_x(x,y) + \Omega_2(x,y)\omega_y(x,y) &= 0 \label{eq:char_ode2_pde_form}
+\omega_x(x,y) + \lambda_+(x,y)\omega_y(x,y) &= 0 \label{eq:char_ode1_pde_form} \\
+\omega_x(x,y) + \lambda_-(x,y)\omega_y(x,y) &= 0 \label{eq:char_ode2_pde_form}
 \end{align}
 Или в более общем виде:
 \begin{equation} \label{eq:char_pde_factor_generic}
-[\omega_x(x,y) + \Omega(x,y)\omega_y(x,y) = 0] \quad (2)
+[\omega_x(x,y) + \lambda_\pm\omega_y(x,y) = 0] \quad (2)
 \end{equation}
-где $\Omega(x,y)$ -- это либо $\Omega_1(x,y)$, либо $\Omega_2(x,y)$.
+где $\lambda_\pm$ -- это либо $\lambda_+(x,y)$, либо $\lambda_-(x,y)$.
 
 \paragraph{Лемма.}
-Пусть есть уравнение $a_1(x,y)\omega_x(x,y) + a_2(x,y)\omega_y(x,y) = 0 \quad (**)$, причём $a_1(x,y), a_2(x,y) \in C^1(U(x_0,y_0))$, и $a_1^2(x,y) + a_2^2(x,y) \neq 0$.
+Пусть есть уравнение $a_1(x,y)\omega_x(x,y) + a_2(x,y)\omega_y(x,y) = 0 \quad (**)$, причём $a_1(x,y), a_2(x,y) \in C^2(U(x_0,y_0))$, и $a_1^2(x,y) + a_2^2(x,y) \neq 0$.
 \newline Тогда:
 \begin{enumerate}
-    \item Любое решение уравнения $(**)$ $\omega(x,y) \in C^2(U(x_0,y_0))$ (если $a_1, a_2 \in C^1 \Rightarrow \omega \in C^2$).
-    При этом $\nabla \omega(x,y) \neq 0 \quad \forall (x,y) \in U(x_0,y_0)$.
-    \item $\omega(x,y)$ является общим интегралом (т.е. $\omega(x,y)=C$ описывает семейство интегральных кривых) обыкновенного дифференциального уравнения (ОДУ) для характеристик:
+    \item $\exists$ решение уравнения $(**)$ $\omega(x,y) \in C^2(U(x_0,y_0))$: $\nabla \omega(x,y) \neq 0 \quad \forall (x,y) \in U(x_0,y_0)$.
+    \item $\omega(x,y)$ является общим интегралом обыкновенного дифференциального уравнения (ОДУ) для характеристик:
     \[ \frac{dx}{a_1(x,y)} = \frac{dy}{a_2(x,y)}, \quad \text{или, если } a_1 \neq 0, \quad \frac{dy}{dx} = \frac{a_2(x,y)}{a_1(x,y)} \]
 \end{enumerate}
 Верно и обратное.
 
-\textit{Замечание к уравнению $(**)$: оно означает, что вектор $(a_1, a_2)$ ортогонален градиенту $\nabla \omega = (\omega_x, \omega_y)$. Следовательно, векторное поле $(a_1, a_2)$ является касательным к линиям уровня функции $\omega(x,y)$. Эти линии уровня и есть характеристики.}
+\textit{Замечание к уравнению: $(**)\Leftrightarrow$ вектор $(a_1, a_2)$ ортогонален градиенту $\nabla \omega = (\omega_x, \omega_y)$. Следовательно, векторное поле $(a_1, a_2)$ является касательным к линиям уровня функции $\omega(x,y)$. Эти линии уровня и есть характеристики.}
 
 % ... (Далее идет применение леммы для нахождения \xi и \eta) ...
 % Маленькая диаграмма внизу может быть описана или нарисована с помощью TikZ
-% \begin{figure}[h!]
-% \centering
-% % TikZ код для диаграммы характеристик
-% \caption{Интегральные кривые (характеристики) уравнения $dy/dx = a_2(x,y)/a_1(x,y)$. Они являются линиями уровня $\omega(x,y)=\text{const}$.}
-% \end{figure}
+\begin{figure}[h!]
+\centering
+% TikZ код для диаграммы характеристик
+\caption{Интегральные кривые (характеристики) уравнения $dy/dx = a_2(x,y)/a_1(x,y)$. Они являются линиями уровня $\omega(x,y)=\text{const}$.}
+\end{figure}
 % ... (продолжение из предыдущего ответа) ...
 
-\textit{Продолжение доказательства и применения Леммы:}
+\textit{Доказательство}
 \newline
-Пусть $\omega(x,y)$ -- решение уравнения $(**)$, т.е. $a_1(x,y)\omega_x(x,y) + a_2(x,y)\omega_y(x,y) = 0$.
+Пусть $\omega(x,y)$ -- решение уравнения $(**)$, т.е. $a_1(x,y)\omega_x(x,y) + a_2(x,y)\omega_y(x,y) = 0. \Rightarrow a_1\frac{\omega_x}{\omega_y} +a_2 = 0 $.
+\\
 Равенство $\omega(x,y)=C$ определяет (локально, если $\omega_y \neq 0$) неявную функцию $y=y(x,C)$, для которой, дифференцируя по $x$, получаем $\omega_x + \omega_y \frac{dy}{dx} = 0$, откуда $\frac{dy}{dx} = -\frac{\omega_x(x,y)}{\omega_y(x,y)}$.
 Из уравнения $(**)$, если $\omega_y \neq 0$, имеем $a_1 \frac{\omega_x}{\omega_y} + a_2 = 0 \quad (\lambda)$.
 Тогда $\frac{\omega_x}{\omega_y} = -\frac{a_2}{a_1}$.
